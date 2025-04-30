@@ -13,12 +13,12 @@ cd projeto-gestao-config
 
 ### 2. Instale as dependencias
 
-````bash
+```bash
 npm i
 ```
 
 ### 3. Inicie o servisor em modo de desenvolvimento
-````bash
+```bash
 npm run dev
 ```
 
