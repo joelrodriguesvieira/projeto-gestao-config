@@ -7,8 +7,8 @@ Esta é uma API simples desenvolvida com Node.js, Express e TypeScript, que arma
 ### 1. Clone o repositório
 
 ```bash
-git clone https://github.com/seu-usuario/nome-do-repo.git
-cd nome-do-repo
+git clone [https://github.com/seu-usuario/nome-do-repo.git](https://github.com/joelrodriguesvieira/projeto-gestao-config.git)
+cd projeto-gestao-config
 ```
 
 ### 2. Instale as dependencias
