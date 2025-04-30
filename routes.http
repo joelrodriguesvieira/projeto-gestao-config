@@ -1,2 +1,13 @@
 ###
+POST http://localhost:3001/videos
+Content-Type: application/json
+
+{
+  "title": "Video Teste",
+  "description": "Um teste simples",
+  "duration": 90
+}
+
+###
+
 GET http://localhost:3001/videos

@@ -11,4 +11,10 @@ export class DatabaseMemory {
       }))
       .filter((video) => !search || video.title.includes(search));
   }
+
+  create(video: { title: string; description: string; duration: number }) {
+    const id = randomUUID();
+    this.#videos.set(id, video);
+    return id;
+  }
 }

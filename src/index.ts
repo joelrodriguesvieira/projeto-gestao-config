@@ -16,6 +16,15 @@ app.get(
   }
 );
 
+app.post(
+  "/videos",
+  async (request: Request, response: Response): Promise<any> => {
+    const { title, description, duration } = request.body;
+    await database.create({ title, description, duration });
+    return response.status(201).send();
+  }
+);
+
 app.listen(PORT, () => {
   console.log(`Server is running on PORT ${PORT}`);
 });

@@ -24,4 +24,9 @@ npm run dev
 
 ### 4. Use o arquivo 'routes.http'
 
-    Para testar as rotas da aplicação no próprio VSCode, instale a extensao 'REST Client' e depois vá no arquivo routes.http e clique em 'Send Request' em qualquer uma das rotas
+Para testar as rotas da aplicação no próprio VSCode, instale a extensao 'REST Client' e depois vá no arquivo routes.http e clique em 'Send Request' em qualquer uma das rotas
+
+
+## Estilo de Workflow
+
+Decidi usar o GitFlow como fluxo do trabalho, devido a minha prática com esse fluxo, tanto em projetos pessoais, quanto em projetos profissionais.
