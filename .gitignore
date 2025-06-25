@@ -1,2 +1,13 @@
 /node_modules
 /dist
+
+.vagrant/
+vagrant_data/
+
+node_modules/
+dist/
+.env
+*.log
+
+.DS_Store
+Thumbs.db
