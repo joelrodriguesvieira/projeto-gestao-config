@@ -79,17 +79,22 @@ Após as VMs estarem ativas:
    vagrant ssh vm1
    ```
 
-2. Dentro da VM1, vá até a pasta com o playbook:
+2. Dentro da VM1, vá até a pasta com o playbook e o inventory:
    ```bash
-   cd /home/vagrant/ansible
+   cd /home/vagrant/vagrant_data/infra/ansible
    ```
 
 3. Execute o playbook:
    ```bash
    ansible-playbook -i inventory configura-node.yaml
    ```
+Esse playbook:
 
-Esse playbook instala o Git e Node.js na VM2, clona o projeto, instala as dependências, compila o TypeScript e executa o servidor na porta **3001**.
+* Instala o Git e Node.js na VM2
+* Clona o repositório da aplicação
+* Instala as dependências (somente as de produção)
+* Compila o código TypeScript (npm run build)
+* Inicia o servidor com node dist/index.js em background
 
 ---
 
