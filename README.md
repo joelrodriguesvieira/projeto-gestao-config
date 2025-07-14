@@ -62,9 +62,45 @@ Antes de iniciar, instale:
 
 ---
 
-## 🚀 Como iniciar o ambiente
+## 🚀 Suba as VMs com Vagrant
 
 No terminal, na pasta onde está o `Vagrantfile`, execute:
 
 ```bash
 vagrant up
+```
+
+### 🖥️ Configure o ambiente com Ansible
+
+Após as VMs estarem ativas:
+
+1. Acesse a **VM1** (nó de controle):
+   ```bash
+   vagrant ssh vm1
+   ```
+
+2. Dentro da VM1, vá até a pasta com o playbook:
+   ```bash
+   cd /home/vagrant/ansible
+   ```
+
+3. Execute o playbook:
+   ```bash
+   ansible-playbook -i inventory configura-node.yaml
+   ```
+
+Esse playbook instala o Git e Node.js na VM2, clona o projeto, instala as dependências, compila o TypeScript e executa o servidor na porta **3001**.
+
+---
+
+## 🧪 Testes com `curl`
+
+Após rodar o playbook, você pode testar a API diretamente da **VM1** com o comando:
+
+```bash
+curl http://192.168.56.11:3001/videos
+```
+
+Esse comando deve retornar um array vazio `[]` se tudo estiver funcionando corretamente.
+
+---
