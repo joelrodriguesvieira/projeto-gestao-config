@@ -1,0 +1,48 @@
+
+- name: Configurar aplicação na VM2
+  hosts: servidores
+  become: yes
+
+  tasks:
+    - name: Instalar Git
+      apt:
+        name: git
+        state: present
+
+    - name: Clonar o repositório da aplicação
+      git:
+        repo: 'https://github.com/joelrodriguesvieira/projeto-gestao-config.git'
+        dest: /home/vagrant/projeto-node
+        force: yes
+
+    - name: Adiciona o repositório do Node.js 16.x
+      shell: curl -fsSL https://deb.nodesource.com/setup_16.x | bash -
+      args:
+        executable: /bin/bash
+
+    - name: Instala Node.js
+      apt:
+        name: nodejs
+        state: present
+        update_cache: yes
+
+    - name: Instalar dependências com npm
+      npm:
+        path: /home/vagrant/projeto-node
+        production: no
+
+    - name: Compilar o projeto Typescript
+      shell: npm run build
+      args:
+        chdir: /home/vagrant/projeto-node
+
+    - name: Garantir permissões no output.log
+      file:
+        path: /home/vagrant/projeto-node/output.log
+        state: touch
+        mode: '0666'
+
+    - name: Rodar aplicação com node dist/index.js (background)
+      shell: nohup node dist/index.js > output.log 2>&1 &
+      args:
+        chdir: /home/vagrant/projeto-node
